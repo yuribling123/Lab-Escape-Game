@@ -11,7 +11,7 @@ extends Node2D
 	#pass
 
 # Reference to the AnimatedSprite2D node
-@onready var sprite = $"Animated-Rat"
+@onready var sprite = $"rat-animation"
 
 var speed = 200
 

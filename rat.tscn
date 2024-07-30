@@ -60,4 +60,4 @@ script = ExtResource("2_213bt")
 position = Vector2(-79.8938, 6.65083)
 sprite_frames = SubResource("SpriteFrames_pbbtg")
 animation = &"idle_right"
-frame_progress = 0.937147
+frame_progress = 0.072727
