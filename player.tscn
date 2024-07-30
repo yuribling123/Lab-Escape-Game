@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsipnlcwmlir7"]
-
-[ext_resource type="Texture2D" uid="uid://do7iy2n3y2ydd" path="res://player-mouse.png" id="1_jukaw"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Player-mouse" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 1000)
-texture = ExtResource("1_jukaw")

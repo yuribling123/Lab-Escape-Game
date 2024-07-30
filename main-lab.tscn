@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7q1bq2vkkk8b"]
+
+[ext_resource type="PackedScene" uid="uid://dsipnlcwmlir7" path="res://rat.tscn" id="1_m1ljj"]
+[ext_resource type="Texture2D" uid="uid://odj5h187o5m5" path="res://assets/main-lab.svg" id="1_o7gaj"]
+[ext_resource type="Texture2D" uid="uid://bm1k5slgxfgg7" path="res://assets/cheese.png" id="3_l0222"]
+
+[node name="Node" type="Node"]
+
+[node name="main-lab" type="Sprite2D" parent="."]
+position = Vector2(1734, 1126)
+scale = Vector2(1.8326, 2.00209)
+texture = ExtResource("1_o7gaj")
+
+[node name="rat" parent="." instance=ExtResource("1_m1ljj")]
+position = Vector2(645, 1347)
+
+[node name="cheese" type="Node2D" parent="."]
+position = Vector2(1734, 1126)
+scale = Vector2(1.8326, 2.00209)
+
+[node name="cheese" type="Sprite2D" parent="cheese"]
+position = Vector2(-140.46, 475.142)
+scale = Vector2(2.74372, 2.39026)
+texture = ExtResource("3_l0222")

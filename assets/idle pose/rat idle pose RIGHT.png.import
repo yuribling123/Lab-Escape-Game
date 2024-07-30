@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do7iy2n3y2ydd"
-path="res://.godot/imported/player-mouse.png-6c96c1f15de8bd6cf3093a626f6e1b28.ctex"
+uid="uid://cpokky4a3s1ok"
+path="res://.godot/imported/rat idle pose RIGHT.png-c64c5523e00b953f7111759770a8aae3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player-mouse.png"
-dest_files=["res://.godot/imported/player-mouse.png-6c96c1f15de8bd6cf3093a626f6e1b28.ctex"]
+source_file="res://assets/idle pose/rat idle pose RIGHT.png"
+dest_files=["res://.godot/imported/rat idle pose RIGHT.png-c64c5523e00b953f7111759770a8aae3.ctex"]
 
 [params]
 

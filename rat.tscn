@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsipnlcwmlir7"]
+
+[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="1_paqu2"]
+[ext_resource type="Script" path="res://rat.gd" id="2_213bt"]
+[ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="3_mluqg"]
+[ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="3_qn8h8"]
+[ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="3_wgc6x"]
+[ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="4_ern6f"]
+[ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="4_jbfaa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbbtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_paqu2")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mluqg")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qn8h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbfaa")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ern6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wgc6x")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="rat" type="Sprite2D" parent="."]
+position = Vector2(130, 623)
+scale = Vector2(3.7675, 5.2625)
+script = ExtResource("2_213bt")
+
+[node name="Animated-Rat" type="AnimatedSprite2D" parent="rat"]
+position = Vector2(-79.8938, 6.65083)
+sprite_frames = SubResource("SpriteFrames_pbbtg")
+animation = &"idle_right"
+frame_progress = 0.937147
