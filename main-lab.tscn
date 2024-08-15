@@ -1,17 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7q1bq2vkkk8b"]
+[gd_scene load_steps=20 format=3 uid="uid://c7q1bq2vkkk8b"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_fmoms"]
 [ext_resource type="Texture2D" uid="uid://odj5h187o5m5" path="res://assets/main-lab.svg" id="1_o7gaj"]
 [ext_resource type="Script" path="res://cheese.gd" id="3_7yu8c"]
 [ext_resource type="Texture2D" uid="uid://bm1k5slgxfgg7" path="res://assets/cheese.png" id="3_l0222"]
 [ext_resource type="Script" path="res://Button.gd" id="5_rfgn0"]
 [ext_resource type="Script" path="res://rat.gd" id="7_uyqy6"]
+[ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="7_vpraw"]
 [ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="8_hlxhq"]
 [ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="9_xxopi"]
 [ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="10_88onb"]
 [ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="11_h5gtd"]
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="12_so3ip"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="13_ohl2e"]
+[ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="14_n8j0n"]
+[ext_resource type="Texture2D" uid="uid://bjphnuo0e812p" path="res://inventory/inventory_raw_assets/tools/axe and wood to be broken/axe to break wood blocking door.png" id="14_vc7fp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qnu3"]
 radius = 73.8348
@@ -66,36 +68,38 @@ animations = [{
 radius = 19.1108
 height = 38.2217
 
-[node name="Node" type="Node"]
-script = ExtResource("1_fmoms")
+[node name="World" type="Node"]
 
 [node name="main-lab" type="Sprite2D" parent="."]
 position = Vector2(1734, 1126)
 scale = Vector2(1.8326, 2.00209)
 texture = ExtResource("1_o7gaj")
+metadata/_edit_lock_ = true
 
 [node name="cheese" type="Area2D" parent="."]
-position = Vector2(1734, 1126)
+position = Vector2(3011, 1243)
 scale = Vector2(1.8326, 2.00209)
 disable_mode = 2
 script = ExtResource("3_7yu8c")
 
 [node name="cheese-image" type="Sprite2D" parent="cheese"]
-position = Vector2(-140.46, 475.142)
+position = Vector2(-210.084, 377.106)
 scale = Vector2(2.74372, 2.39026)
 texture = ExtResource("3_l0222")
 
 [node name="cheese-collision-2D" type="CollisionShape2D" parent="cheese"]
-position = Vector2(-136.418, 448.531)
+position = Vector2(-210.084, 354.13)
 shape = SubResource("CircleShape2D_5qnu3")
 
 [node name="dialogue" type="Panel" parent="cheese"]
+visible = false
 offset_left = 16.3701
 offset_top = -5.49426
 offset_right = 56.3701
 offset_bottom = 34.5057
 
 [node name="label" type="Label" parent="cheese/dialogue"]
+layout_mode = 0
 offset_left = -84.5791
 offset_top = 383.1
 offset_right = 72.4209
@@ -106,6 +110,7 @@ text = "you found cheese ♥
 "
 
 [node name="button" type="Button" parent="cheese/dialogue"]
+layout_mode = 0
 offset_left = 13.0961
 offset_top = 429.551
 offset_right = 61.0961
@@ -115,18 +120,31 @@ text = "close
 script = ExtResource("5_rfgn0")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1443, 2076)
+position = Vector2(1339, 2116)
 scale = Vector2(3.7675, 5.2625)
 script = ExtResource("7_uyqy6")
+inv = ExtResource("7_vpraw")
 
 [node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
-position = Vector2(-79.8938, 6.65083)
+position = Vector2(-145.72, -10.8314)
 sprite_frames = SubResource("SpriteFrames_6fm2f")
 animation = &"idle_right"
 
 [node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
-position = Vector2(-76.9741, -5.89074)
+position = Vector2(-140.677, -24.323)
 shape = SubResource("CapsuleShape2D_pmij0")
+
+[node name="Inv_UI" parent="rat" instance=ExtResource("14_n8j0n")]
+offset_left = -122.097
+offset_top = -77.7197
+offset_right = 5642.9
+offset_bottom = 1710.28
+rotation = 0.00229104
+scale = Vector2(0.0559557, 0.0555906)
+
+[node name="AxeToBreakWoodBlockingDoor" type="Sprite2D" parent="."]
+position = Vector2(602, 2222)
+texture = ExtResource("14_vc7fp")
 
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
 [connection signal="area_exited" from="cheese" to="." method="_on_cheese_area_exited"]

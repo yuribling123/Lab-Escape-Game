@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://god3pgqa6u12"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_qslsb"]
+[ext_resource type="Texture2D" uid="uid://bjphnuo0e812p" path="res://inventory/inventory_raw_assets/tools/axe and wood to be broken/axe to break wood blocking door.png" id="2_26up2"]
+
+[resource]
+script = ExtResource("1_qslsb")
+name1 = "axe"
+texture = ExtResource("2_26up2")

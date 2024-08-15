@@ -13,6 +13,9 @@ extends Node2D
 # Reference to the AnimatedSprite2D node
 @onready var sprite = $"rat-animation"
 
+# inventory system
+@export var inv: Inv
+
 var speed = 200
 
 var last_direction = "idle_left"  # Default idle direction
