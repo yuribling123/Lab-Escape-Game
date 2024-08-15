@@ -7,10 +7,13 @@ var is_open = false
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 func _ready():
+	# sconnect to update from back end
+	inv.update.connect(update_slots)
 	update_slots()
 	close()
 
 func update_slots():
+	print ("update called")
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
 
@@ -29,3 +32,9 @@ func open():
 func close():
 	visible = false
 	is_open = false
+	
+	
+	
+# handel drag
+
+var dragging_instance = null

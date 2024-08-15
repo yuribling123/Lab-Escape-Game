@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://def5ggwuyb6i3" path="res://inventory/inv_ui_slot.tscn" id="2_he3la"]
 
 [node name="Inv_UI" type="Control"]
+custom_minimum_size = Vector2(3188, 401)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 3188.0
+offset_bottom = 401.0
 scale = Vector2(0.800792, 0.956664)
 script = ExtResource("1_tcyfv")
 

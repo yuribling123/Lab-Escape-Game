@@ -44,3 +44,10 @@ func _process(delta):
 
 	# Update the character's position
 	position += velocity * delta
+	
+	
+	
+# Collect function
+func collect(item):
+	inv.insert(item)
+
