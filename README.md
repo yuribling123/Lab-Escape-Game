@@ -3,6 +3,6 @@
 
 ----
 
-8.16 update : toolbar 
+8.16 Update : Toolbar 
 
 <img width="1697" alt="Screenshot 2024-08-16 at 9 17 10 PM" src="https://github.com/user-attachments/assets/c8237641-3919-4f89-ad08-30704a5a1d90">
