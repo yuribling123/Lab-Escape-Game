@@ -18,7 +18,7 @@ func _process(delta):
 
 
 
-func _on_area_entered(area): # area that entered the place
+func _on_area_entered(area):
 	player = area;
 	player.collect(item)
 	# Remove this node from the scene, so it can't be picked up again

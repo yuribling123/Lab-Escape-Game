@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwv1iygqaod4l"
-path="res://.godot/imported/notebook that can be opened, filled with clues.png-1c51551bd31aa578260805b187a681e0.ctex"
+uid="uid://bckl0cscu4kb0"
+path="res://.godot/imported/notebook that can be opened, filled with clues-3.png-b545923d75da2eb0f161b6b732e63d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues.png"
-dest_files=["res://.godot/imported/notebook that can be opened, filled with clues.png-1c51551bd31aa578260805b187a681e0.ctex"]
+source_file="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png"
+dest_files=["res://.godot/imported/notebook that can be opened, filled with clues-3.png-b545923d75da2eb0f161b6b732e63d4c.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7q1bq2vkkk8b"]
+[gd_scene load_steps=34 format=3 uid="uid://c7q1bq2vkkk8b"]
 
 [ext_resource type="Texture2D" uid="uid://odj5h187o5m5" path="res://assets/main-lab.svg" id="1_o7gaj"]
 [ext_resource type="Script" path="res://world.gd" id="1_vspup"]
@@ -18,6 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://bjphnuo0e812p" path="res://inventory/inventory_raw_assets/tools/axe and wood to be broken/axe to break wood blocking door.png" id="14_vc7fp"]
 [ext_resource type="Resource" uid="uid://god3pgqa6u12" path="res://inventory/items/axe.tres" id="16_mmt8a"]
 [ext_resource type="Texture2D" uid="uid://djpqef0a00q8d" path="res://inventory/inventory_raw_assets/tools/axe and wood to be broken/wood boards to cover door.png" id="18_ntww2"]
+[ext_resource type="Script" path="res://key.gd" id="19_eudm7"]
+[ext_resource type="Resource" uid="uid://dtlxs4yep804m" path="res://inventory/items/key.tres" id="20_nxuy4"]
+[ext_resource type="Texture2D" uid="uid://breypkc5ph6np" path="res://inventory/inventory_raw_assets/tools/key.png" id="20_yn3ky"]
+[ext_resource type="Script" path="res://notebook.gd" id="22_f7xbt"]
+[ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="23_cdhie"]
+[ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="23_wlkge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qnu3"]
 radius = 39.1505
@@ -78,14 +84,19 @@ radius = 90.0888
 [sub_resource type="CircleShape2D" id="CircleShape2D_30rbm"]
 radius = 117.154
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrvbv"]
+radius = 93.6062
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apk5g"]
+size = Vector2(261.151, 141.503)
+
 [node name="World" type="Node"]
 script = ExtResource("1_vspup")
 
 [node name="main-lab" type="Sprite2D" parent="."]
 position = Vector2(1734, 1126)
-scale = Vector2(1.8326, 2.00209)
+scale = Vector2(1.8326, 1.99537)
 texture = ExtResource("1_o7gaj")
-metadata/_edit_lock_ = true
 
 [node name="cheese" type="Area2D" parent="."]
 visible = false
@@ -132,12 +143,11 @@ text = "close
 script = ExtResource("5_rfgn0")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1339, 2116)
-scale = Vector2(3.7675, 5.2625)
+position = Vector2(1575, 2158)
+scale = Vector2(6.46577, 9.80766)
 script = ExtResource("7_uyqy6")
 inv = ExtResource("7_vpraw")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
 position = Vector2(-143.646, -17.209)
@@ -160,31 +170,68 @@ scale = Vector2(0.0559557, 0.0555906)
 
 [node name="axe" type="Area2D" parent="."]
 position = Vector2(-659, 24)
+scale = Vector2(1.43823, 0.938594)
 script = ExtResource("14_2ivmx")
 item = ExtResource("16_mmt8a")
 metadata/_edit_group_ = true
 
 [node name="axe-image" type="Sprite2D" parent="axe"]
 position = Vector2(1755, 1995)
-scale = Vector2(4.27857, 4.86429)
+scale = Vector2(4.29818, 7.13209)
 texture = ExtResource("14_vc7fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="axe"]
-position = Vector2(1765, 1987)
+position = Vector2(1734.68, 1994.25)
 shape = SubResource("CircleShape2D_40com")
 
 [node name="wood" type="Area2D" parent="."]
+position = Vector2(-28, -302)
+scale = Vector2(1.10099, 1.0054)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wood"]
 position = Vector2(237, 2023)
 shape = SubResource("CircleShape2D_30rbm")
 
-[node name="Sprite2D" type="Sprite2D" parent="wood"]
+[node name="wood-image" type="Sprite2D" parent="wood"]
 position = Vector2(238, 2021)
 scale = Vector2(3.81317, 6.61317)
 texture = ExtResource("18_ntww2")
 
+[node name="key" type="Area2D" parent="."]
+position = Vector2(-1000, 44)
+script = ExtResource("19_eudm7")
+item = ExtResource("20_nxuy4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key"]
+position = Vector2(2325, 1929)
+scale = Vector2(1.4529, 1)
+shape = SubResource("CircleShape2D_qrvbv")
+
+[node name="key-image" type="Sprite2D" parent="key"]
+position = Vector2(2309, 1935)
+scale = Vector2(6.38452, 5.83773)
+texture = ExtResource("20_yn3ky")
+
+[node name="notebook" type="Area2D" parent="."]
+script = ExtResource("22_f7xbt")
+item = ExtResource("23_wlkge")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="notebook"]
+position = Vector2(2338, 1856)
+scale = Vector2(5.18174, 5.18268)
+texture = ExtResource("23_cdhie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
+position = Vector2(2356, 1849)
+scale = Vector2(0.790798, 1.49431)
+shape = SubResource("RectangleShape2D_apk5g")
+
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
 [connection signal="area_exited" from="cheese" to="." method="_on_cheese_area_exited"]
 [connection signal="area_entered" from="axe" to="axe" method="_on_area_entered"]
+[connection signal="area_entered" from="key" to="key" method="_on_area_entered"]
+[connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]

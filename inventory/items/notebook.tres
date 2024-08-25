@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dc3k2qyouvt3j"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_cryoj"]
+[ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="2_fop4a"]
+
+[resource]
+script = ExtResource("1_cryoj")
+name1 = "notebook"
+texture = ExtResource("2_fop4a")
