@@ -144,11 +144,10 @@ text = "close
 script = ExtResource("5_rfgn0")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1005, 604)
+position = Vector2(1024, 576)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("7_uyqy6")
 inv = ExtResource("7_vpraw")
-metadata/_edit_group_ = true
 
 [node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
 position = Vector2(-147.392, -22.8139)
@@ -162,12 +161,12 @@ shape = SubResource("CapsuleShape2D_pmij0")
 
 [node name="Inv_UI" parent="rat" instance=ExtResource("14_n8j0n")]
 custom_minimum_size = Vector2(20, 20)
-offset_left = -122.0
-offset_top = -73.0
-offset_right = 3100.0
-offset_bottom = 358.0
-rotation = 0.00229104
-scale = Vector2(0.0559557, 0.0555906)
+offset_left = -121.043
+offset_top = -49.168
+offset_right = 3008.96
+offset_bottom = 331.832
+rotation = -3.13872
+scale = Vector2(0.0151642, -0.0173953)
 
 [node name="axe" type="Area2D" parent="."]
 position = Vector2(-1917, -1398)
