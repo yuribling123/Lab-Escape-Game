@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://r6qq75ecwt2g"]
+
+[ext_resource type="Texture2D" uid="uid://nfgyods2kq2e" path="res://Backdrops/the main office/main office.jpg" id="1_rnh8c"]
+[ext_resource type="Script" path="res://rat.gd" id="2_weno8"]
+[ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_obeon"]
+[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="4_bamjf"]
+[ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="5_nkhr3"]
+[ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="6_ownsd"]
+[ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="7_tl80g"]
+[ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_vi7yn"]
+[ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_7k050"]
+[ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_i11ta"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rey3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bamjf")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nkhr3")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ownsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tl80g")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vi7yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7k050")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vjyk"]
+radius = 11.8003
+height = 23.6006
+
+[node name="Main-office" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 321.25)
+scale = Vector2(1.152, 0.97976)
+texture = ExtResource("1_rnh8c")
+metadata/_edit_lock_ = true
+
+[node name="rat" type="Area2D" parent="."]
+position = Vector2(1024, 576)
+scale = Vector2(4.85779, 5.08461)
+script = ExtResource("2_weno8")
+inv = ExtResource("3_obeon")
+
+[node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
+position = Vector2(-147.392, -22.8139)
+scale = Vector2(0.539097, 0.466112)
+sprite_frames = SubResource("SpriteFrames_rey3g")
+animation = &"idle_right"
+
+[node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
+position = Vector2(-144.098, -28.7141)
+shape = SubResource("CapsuleShape2D_1vjyk")
+
+[node name="Inv_UI" parent="rat" instance=ExtResource("10_i11ta")]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -121.043
+offset_top = -49.168
+offset_right = 3008.96
+offset_bottom = 331.832
+rotation = -3.13872
+scale = Vector2(0.0151642, -0.0173953)

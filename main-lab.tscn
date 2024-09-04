@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7q1bq2vkkk8b"]
+[gd_scene load_steps=35 format=3 uid="uid://c7q1bq2vkkk8b"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_vspup"]
 [ext_resource type="Texture2D" uid="uid://bqdqbvgr6m56" path="res://Backdrops/the big main lab/the big main lab.jpg" id="2_i5luc"]
@@ -24,6 +24,9 @@
 [ext_resource type="Script" path="res://notebook.gd" id="22_f7xbt"]
 [ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="23_cdhie"]
 [ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="23_wlkge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmvq2"]
+size = Vector2(90.165, 77.8869)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qnu3"]
 radius = 39.1505
@@ -98,6 +101,14 @@ position = Vector2(576, 324)
 scale = Vector2(1.60007, 1.19049)
 texture = ExtResource("2_i5luc")
 metadata/_edit_lock_ = true
+
+[node name="scene-transition-detect" type="Area2D" parent="main-lab"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main-lab/scene-transition-detect"]
+position = Vector2(341.235, -3.35995)
+rotation = 3.14159
+scale = Vector2(0.354385, -7.15029)
+shape = SubResource("RectangleShape2D_nmvq2")
 
 [node name="cheese" type="Area2D" parent="."]
 visible = false
@@ -231,6 +242,7 @@ position = Vector2(2151, 1880)
 scale = Vector2(0.790798, 1.49431)
 shape = SubResource("RectangleShape2D_apk5g")
 
+[connection signal="area_entered" from="main-lab/scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
 [connection signal="area_exited" from="cheese" to="." method="_on_cheese_area_exited"]
 [connection signal="area_entered" from="axe" to="axe" method="_on_area_entered"]

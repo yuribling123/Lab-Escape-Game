@@ -19,3 +19,9 @@ func _on_cheese_area_entered(area):
 func _on_cheese_area_exited(area):
 	dialog_label.visible = false
 	dialog_button.visible = false
+
+
+func _on_scenetransitiondetect_area_entered(area):
+	print("transition")
+	get_tree().change_scene_to_file("res://scenes/main-office.tscn")
+
