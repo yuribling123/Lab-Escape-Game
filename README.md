@@ -13,3 +13,12 @@
 
 
 <img width="1670" alt="Screenshot 2024-08-24 at 5 19 27 PM" src="https://github.com/user-attachments/assets/1a04bc41-f297-43be-a834-64c628ff9a85">
+
+9/4 Update : Scene Transition
+
+![image](https://github.com/user-attachments/assets/a5347601-fad9-4ffa-a889-de6367e27472)
+
+![image](https://github.com/user-attachments/assets/ce196e50-7e91-44a1-b067-67870a8b518b)
+
+
+
