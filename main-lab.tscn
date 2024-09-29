@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Button.gd" id="5_rfgn0"]
 [ext_resource type="Script" path="res://rat.gd" id="7_uyqy6"]
 [ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="7_vpraw"]
-[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="8_hlxhq"]
+[ext_resource type="Texture2D" uid="uid://b4j1skbq8johf" path="res://assets/idle pose/please.png" id="8_k3qea"]
 [ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="9_xxopi"]
 [ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="10_88onb"]
 [ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="11_h5gtd"]
@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="23_wlkge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmvq2"]
-size = Vector2(90.165, 77.8869)
+size = Vector2(37.0962, 12.8343)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qnu3"]
 radius = 39.1505
@@ -40,7 +40,7 @@ bg_color = Color(0.121569, 0.0784314, 0.0235294, 0.690196)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_hlxhq")
+"texture": ExtResource("8_k3qea")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -100,12 +100,13 @@ script = ExtResource("1_vspup")
 position = Vector2(576, 324)
 scale = Vector2(1.60007, 1.19049)
 texture = ExtResource("2_i5luc")
-metadata/_edit_lock_ = true
 
-[node name="scene-transition-detect" type="Area2D" parent="main-lab"]
+[node name="scene-transition-detect" type="Area2D" parent="."]
+position = Vector2(-202, 372)
+scale = Vector2(1.60007, 1.19049)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="main-lab/scene-transition-detect"]
-position = Vector2(341.235, -3.35995)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene-transition-detect"]
+position = Vector2(377.484, -13.4398)
 rotation = 3.14159
 scale = Vector2(0.354385, -7.15029)
 shape = SubResource("RectangleShape2D_nmvq2")
@@ -155,19 +156,20 @@ text = "close
 script = ExtResource("5_rfgn0")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1024, 576)
+position = Vector2(1790, 504)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("7_uyqy6")
 inv = ExtResource("7_vpraw")
+metadata/_edit_group_ = true
 
 [node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
-position = Vector2(-147.392, -22.8139)
+position = Vector2(-168.801, -16.1271)
 scale = Vector2(0.539097, 0.466112)
 sprite_frames = SubResource("SpriteFrames_6fm2f")
-animation = &"idle_right"
+animation = &"idle_left"
 
 [node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
-position = Vector2(-144.098, -28.7141)
+position = Vector2(-172.712, -21.4372)
 shape = SubResource("CapsuleShape2D_pmij0")
 
 [node name="Inv_UI" parent="rat" instance=ExtResource("14_n8j0n")]
@@ -180,23 +182,27 @@ rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
 
 [node name="axe" type="Area2D" parent="."]
-position = Vector2(-1917, -1398)
-scale = Vector2(1.43823, 0.938594)
+visible = false
+position = Vector2(-1600, -1750)
+rotation = 0.0383972
+scale = Vector2(1.47783, 1.02725)
 script = ExtResource("14_2ivmx")
 item = ExtResource("16_mmt8a")
 metadata/_edit_group_ = true
 
 [node name="axe-image" type="Sprite2D" parent="axe"]
 position = Vector2(1735.47, 2006.19)
+rotation = 2.15723
 scale = Vector2(2.30615, 2.94185)
 texture = ExtResource("14_vc7fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="axe"]
 position = Vector2(1735.47, 2006.19)
+scale = Vector2(0.776789, 0.93387)
 shape = SubResource("CircleShape2D_40com")
 
 [node name="wood" type="Area2D" parent="."]
-position = Vector2(-103, -1548)
+position = Vector2(494, -1538)
 scale = Vector2(1.01591, 0.996602)
 metadata/_edit_group_ = true
 
@@ -210,8 +216,8 @@ scale = Vector2(2.84381, 4.32873)
 texture = ExtResource("18_ntww2")
 
 [node name="key" type="Area2D" parent="."]
-position = Vector2(-1473, -1518)
-scale = Vector2(1.01619, 1.00745)
+position = Vector2(-1387, -1428)
+scale = Vector2(1.01779, 1.0162)
 script = ExtResource("19_eudm7")
 item = ExtResource("20_nxuy4")
 metadata/_edit_group_ = true
@@ -227,7 +233,7 @@ scale = Vector2(2.47237, 2.17195)
 texture = ExtResource("20_yn3ky")
 
 [node name="notebook" type="Area2D" parent="."]
-position = Vector2(-1404, -1351)
+position = Vector2(-1275, -1288)
 script = ExtResource("22_f7xbt")
 item = ExtResource("23_wlkge")
 metadata/_edit_group_ = true
@@ -242,7 +248,7 @@ position = Vector2(2151, 1880)
 scale = Vector2(0.790798, 1.49431)
 shape = SubResource("RectangleShape2D_apk5g")
 
-[connection signal="area_entered" from="main-lab/scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
+[connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
 [connection signal="area_exited" from="cheese" to="." method="_on_cheese_area_exited"]
 [connection signal="area_entered" from="axe" to="axe" method="_on_area_entered"]

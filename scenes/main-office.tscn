@@ -65,7 +65,7 @@ texture = ExtResource("1_rnh8c")
 metadata/_edit_lock_ = true
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1024, 576)
+position = Vector2(1564, 597)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("2_weno8")
 inv = ExtResource("3_obeon")
