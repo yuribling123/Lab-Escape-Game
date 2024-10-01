@@ -156,7 +156,7 @@ text = "close
 script = ExtResource("5_rfgn0")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1790, 504)
+position = Vector2(1329, 542)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("7_uyqy6")
 inv = ExtResource("7_vpraw")
@@ -200,15 +200,18 @@ texture = ExtResource("14_vc7fp")
 position = Vector2(1735.47, 2006.19)
 scale = Vector2(0.776789, 0.93387)
 shape = SubResource("CircleShape2D_40com")
+disabled = true
 
 [node name="wood" type="Area2D" parent="."]
-position = Vector2(494, -1538)
+visible = false
+position = Vector2(134, -1621)
 scale = Vector2(1.01591, 0.996602)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wood"]
 position = Vector2(237, 2023)
 shape = SubResource("CircleShape2D_30rbm")
+disabled = true
 
 [node name="wood-image" type="Sprite2D" parent="wood"]
 position = Vector2(244.116, 2025.88)
@@ -216,7 +219,7 @@ scale = Vector2(2.84381, 4.32873)
 texture = ExtResource("18_ntww2")
 
 [node name="key" type="Area2D" parent="."]
-position = Vector2(-1387, -1428)
+position = Vector2(-1303, -1514)
 scale = Vector2(1.01779, 1.0162)
 script = ExtResource("19_eudm7")
 item = ExtResource("20_nxuy4")

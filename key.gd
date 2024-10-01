@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var item: InvItem
+@onready var rat = get_node("../rat")
 
 var player = null
 
@@ -19,7 +20,14 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	player = area;
-	player.collect(item)
-	# Remove this node from the scene, so it can't be picked up again
-	queue_free()
+	if area == rat:
+		#print("key - rat yes")
+		player = area;
+		item.name1 = 'key'
+		player.collect(item)
+		# Remove this node from the scene, so it can't be picked up again
+		queue_free()
+	#else:
+		#print("key - rat no")
+		#print("area - ", area)
+		#print("rat - ", rat)
