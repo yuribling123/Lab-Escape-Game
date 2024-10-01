@@ -33,7 +33,7 @@ func _on_scenetransitiondetect_area_entered(area):
 			foundkey = true
 	if area == rat and foundkey == true:
 		print("transition")
-		get_tree().change_scene_to_file("res://scenes/main-office.tscn")
+		get_tree().change_scene_to_file("res://scenes/hallway.tscn")
 	else:
 		print("no key")
 

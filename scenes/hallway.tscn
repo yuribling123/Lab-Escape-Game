@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://r6qq75ecwt2g"]
+
+[ext_resource type="Texture2D" uid="uid://e6w3d0hrfme4" path="res://Backdrops/Hallway/Hallway #1.png" id="1_6aunl"]
+[ext_resource type="Script" path="res://rat.gd" id="2_cfeja"]
+[ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_q1chy"]
+[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="4_h0p12"]
+[ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="5_loqa7"]
+[ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="6_lacqm"]
+[ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="7_5e3an"]
+[ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_vc74i"]
+[ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_hbsui"]
+[ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_o6tjm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rey3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h0p12")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_loqa7")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lacqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5e3an")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vc74i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hbsui")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vjyk"]
+radius = 11.8003
+height = 23.6006
+
+[node name="Hallway" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574, 326.5)
+scale = Vector2(1.8464, 1.58596)
+texture = ExtResource("1_6aunl")
+
+[node name="rat" type="Area2D" parent="."]
+position = Vector2(1564, 597)
+scale = Vector2(4.85779, 5.08461)
+script = ExtResource("2_cfeja")
+inv = ExtResource("3_q1chy")
+
+[node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
+position = Vector2(-147.392, -22.8139)
+scale = Vector2(0.539097, 0.466112)
+sprite_frames = SubResource("SpriteFrames_rey3g")
+animation = &"idle_right"
+
+[node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
+position = Vector2(-144.098, -28.7141)
+shape = SubResource("CapsuleShape2D_1vjyk")
+
+[node name="Inv_UI" parent="rat" instance=ExtResource("10_o6tjm")]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -121.043
+offset_top = -49.168
+offset_right = 3008.96
+offset_bottom = 331.832
+rotation = -3.13872
+scale = Vector2(0.0151642, -0.0173953)
