@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvtgsh8xvrl0k"]
+[gd_scene load_steps=15 format=3 uid="uid://bvtgsh8xvrl0k"]
 
+[ext_resource type="Script" path="res://scenes/computer-lab.gd" id="1_giyli"]
 [ext_resource type="Texture2D" uid="uid://dc42ixjlmfnly" path="res://assets/computer-lab.png" id="1_ns8so"]
 [ext_resource type="Script" path="res://rat.gd" id="2_fu0jq"]
 [ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_namno"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_5g2ky"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_p44hq"]
 [ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_djod0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hs5"]
+size = Vector2(251.888, 161.579)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fp3of"]
 animations = [{
@@ -57,11 +61,22 @@ radius = 11.8003
 height = 23.6006
 
 [node name="Computer-lab" type="Node2D"]
+script = ExtResource("1_giyli")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(574.073, 320.122)
 scale = Vector2(0.721751, 0.594016)
 texture = ExtResource("1_ns8so")
+
+[node name="scene-transition-detect" type="Area2D" parent="."]
+position = Vector2(490, 426)
+scale = Vector2(0.638527, 0.472589)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene-transition-detect"]
+position = Vector2(994.086, -173.878)
+rotation = 3.14159
+scale = Vector2(0.354385, -7.15029)
+shape = SubResource("RectangleShape2D_m7hs5")
 
 [node name="rat" type="Area2D" parent="."]
 position = Vector2(817, 724)
@@ -88,3 +103,5 @@ offset_bottom = 331.832
 rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
 metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]

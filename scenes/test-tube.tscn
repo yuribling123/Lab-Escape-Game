@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcrh6m5knjndr"]
+[gd_scene load_steps=17 format=3 uid="uid://bcrh6m5knjndr"]
 
 [ext_resource type="Texture2D" uid="uid://ckdljuufm71tk" path="res://assets/test tube room.png" id="1_b6nom"]
 [ext_resource type="Script" path="res://scenes/test-tube.gd" id="1_mhrst"]
@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_s2w8v"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_kgbef"]
 [ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_nshdq"]
-[ext_resource type="Script" path="res://notebook.gd" id="11_y3gad"]
-[ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_lk7em"]
 [ext_resource type="Texture2D" uid="uid://yem8tofsyjui" path="res://assets/monkey npc.png" id="13_gpbn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyyag"]
@@ -87,8 +85,6 @@ shape = SubResource("RectangleShape2D_tyyag")
 [node name="monkey" type="Area2D" parent="."]
 position = Vector2(-1107, -1383)
 scale = Vector2(0.999106, 0.790087)
-script = ExtResource("11_y3gad")
-item = ExtResource("12_lk7em")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="monkey"]
@@ -129,4 +125,3 @@ scale = Vector2(0.0151642, -0.0173953)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
-[connection signal="area_entered" from="monkey" to="monkey" method="_on_area_entered"]

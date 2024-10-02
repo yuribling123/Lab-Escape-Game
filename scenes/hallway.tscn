@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_vc74i"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_hbsui"]
 [ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_o6tjm"]
-[ext_resource type="Script" path="res://notebook.gd" id="11_k24mx"]
+[ext_resource type="Script" path="res://journal-hallway.gd" id="11_k24mx"]
 [ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_6h75c"]
 [ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_b3xel"]
 

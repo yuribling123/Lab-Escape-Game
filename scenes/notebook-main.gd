@@ -17,10 +17,11 @@ func _process(delta):
 	pass
 
 
+
+
 func _on_area_entered(area):
 	if area == rat:
 		player = area;
-		print("collected journal-main")
-		item.name1 = 'journal-main'
+		item.name1 = 'notebook-main'
 		player.collect(item)
 		queue_free()

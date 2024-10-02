@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://cyhlpx06whp8g"]
+
+[ext_resource type="Texture2D" uid="uid://ds6uadcgduh5y" path="res://assets/boss room.jpg" id="1_3lcih"]
+[ext_resource type="Script" path="res://rat.gd" id="2_t35rs"]
+[ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_xc8sq"]
+[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="4_y7f3j"]
+[ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="5_esr4p"]
+[ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="6_uf6yh"]
+[ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="7_0r4uo"]
+[ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_gxpjy"]
+[ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_fgrrt"]
+[ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_8r66a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ws6xm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y7f3j")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_esr4p")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uf6yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0r4uo")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gxpjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fgrrt")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lnhet"]
+radius = 11.8003
+height = 23.6006
+
+[node name="Boss-scene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(585.112, 322.955)
+scale = Vector2(0.607174, 0.601936)
+texture = ExtResource("1_3lcih")
+
+[node name="rat" type="Area2D" parent="."]
+position = Vector2(822, 704)
+scale = Vector2(4.85779, 5.08461)
+script = ExtResource("2_t35rs")
+inv = ExtResource("3_xc8sq")
+
+[node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
+position = Vector2(-147.392, -22.8139)
+scale = Vector2(0.539097, 0.466112)
+sprite_frames = SubResource("SpriteFrames_ws6xm")
+animation = &"idle_right"
+
+[node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
+position = Vector2(-144.098, -28.7141)
+shape = SubResource("CapsuleShape2D_lnhet")
+
+[node name="Inv_UI" parent="rat" instance=ExtResource("10_8r66a")]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -121.043
+offset_top = -49.168
+offset_right = 3008.96
+offset_bottom = 331.832
+rotation = -3.13872
+scale = Vector2(0.0151642, -0.0173953)
+metadata/_edit_use_anchors_ = true

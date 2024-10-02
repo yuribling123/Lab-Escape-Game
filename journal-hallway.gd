@@ -4,7 +4,7 @@ extends Node2D
 
 var player = null
 
-@onready var rat = get_node("rat")
+@onready var rat = get_node("../rat")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +22,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if area == rat:
 		player = area;
+		print("collected journal-hallway")
 		item.name1 = 'journal-hallway'
 		player.collect(item)
 		queue_free()

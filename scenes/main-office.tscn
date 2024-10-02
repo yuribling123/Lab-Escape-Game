@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8pnybtr0x04o"]
+[gd_scene load_steps=21 format=3 uid="uid://b8pnybtr0x04o"]
 
 [ext_resource type="Texture2D" uid="uid://bsc0f16xkodf1" path="res://assets/main office .png" id="1_a4hsc"]
 [ext_resource type="Script" path="res://scenes/main-office.gd" id="1_pmr6q"]
@@ -11,9 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_glxs5"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_vafdd"]
 [ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_bmvl2"]
-[ext_resource type="Script" path="res://notebook.gd" id="11_ftogy"]
 [ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_qvr3t"]
+[ext_resource type="Script" path="res://axe.gd" id="12_rw532"]
 [ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_hxln3"]
+[ext_resource type="Script" path="res://scenes/notebook-main.gd" id="15_445gb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtd4y"]
 size = Vector2(251.888, 161.579)
@@ -63,7 +64,10 @@ animations = [{
 radius = 11.8003
 height = 23.6006
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a1bs"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2d2h"]
+radius = 53.2313
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ignhk"]
 size = Vector2(98.1659, 53.4444)
 
 [node name="Main-office" type="Node2D"]
@@ -111,21 +115,43 @@ rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
 metadata/_edit_use_anchors_ = true
 
-[node name="notebook" type="Area2D" parent="."]
-position = Vector2(-1586, -1370)
-script = ExtResource("11_ftogy")
+[node name="journal-main" type="Area2D" parent="."]
+position = Vector2(-1981, -1653)
+rotation = 0.0410721
+scale = Vector2(1.47783, 1.02725)
+script = ExtResource("12_rw532")
 item = ExtResource("12_qvr3t")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="notebook"]
+[node name="journal-image" type="Sprite2D" parent="journal-main"]
+position = Vector2(1739.99, 2004.83)
+rotation = -0.827286
+scale = Vector2(2.143, 3)
+skew = -0.0296706
+texture = ExtResource("13_hxln3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="journal-main"]
+position = Vector2(1735.47, 2006.19)
+scale = Vector2(0.776789, 0.93387)
+shape = SubResource("CircleShape2D_m2d2h")
+
+[node name="notebook-main" type="Area2D" parent="."]
+visible = false
+position = Vector2(-1464, -1410)
+script = ExtResource("15_445gb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="notebook-main"]
 position = Vector2(2151, 1879)
 scale = Vector2(1.84854, 2.39284)
 texture = ExtResource("13_hxln3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook-main"]
 position = Vector2(2151, 1880)
 scale = Vector2(0.790798, 1.49431)
-shape = SubResource("RectangleShape2D_6a1bs")
+shape = SubResource("RectangleShape2D_ignhk")
+disabled = true
 
 [connection signal="area_entered" from="Sprite2D/scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
-[connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]
+[connection signal="area_entered" from="journal-main" to="journal-main" method="_on_area_entered"]
+[connection signal="area_entered" from="notebook-main" to="notebook-main" method="_on_area_entered"]

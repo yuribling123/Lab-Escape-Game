@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c7q1bq2vkkk8b"]
+[gd_scene load_steps=31 format=3 uid="uid://c7q1bq2vkkk8b"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_vspup"]
 [ext_resource type="Texture2D" uid="uid://bqdqbvgr6m56" path="res://Backdrops/the big main lab/the big main lab.jpg" id="2_i5luc"]
@@ -21,9 +21,6 @@
 [ext_resource type="Script" path="res://key.gd" id="19_eudm7"]
 [ext_resource type="Resource" uid="uid://dtlxs4yep804m" path="res://inventory/items/key.tres" id="20_nxuy4"]
 [ext_resource type="Texture2D" uid="uid://breypkc5ph6np" path="res://inventory/inventory_raw_assets/tools/key.png" id="20_yn3ky"]
-[ext_resource type="Script" path="res://notebook.gd" id="22_f7xbt"]
-[ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="23_cdhie"]
-[ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="23_wlkge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmvq2"]
 size = Vector2(37.0962, 12.8343)
@@ -89,9 +86,6 @@ radius = 47.8703
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrvbv"]
 radius = 30.7366
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_apk5g"]
-size = Vector2(98.1659, 53.4444)
 
 [node name="World" type="Node"]
 script = ExtResource("1_vspup")
@@ -236,27 +230,8 @@ position = Vector2(2322.28, 1929.56)
 scale = Vector2(2.47237, 2.17195)
 texture = ExtResource("20_yn3ky")
 
-[node name="notebook" type="Area2D" parent="."]
-visible = false
-position = Vector2(-1275, -1288)
-script = ExtResource("22_f7xbt")
-item = ExtResource("23_wlkge")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="notebook"]
-position = Vector2(2151, 1879)
-scale = Vector2(1.84854, 2.39284)
-texture = ExtResource("23_cdhie")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
-position = Vector2(2151, 1880)
-scale = Vector2(0.790798, 1.49431)
-shape = SubResource("RectangleShape2D_apk5g")
-disabled = true
-
 [connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
 [connection signal="area_exited" from="cheese" to="." method="_on_cheese_area_exited"]
 [connection signal="area_entered" from="axe" to="axe" method="_on_area_entered"]
 [connection signal="area_entered" from="key" to="key" method="_on_area_entered"]
-[connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]
