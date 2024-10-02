@@ -46,7 +46,6 @@ func _process(delta):
 	position += velocity * delta
 	
 	
-	
 # Collect function
 func collect(item):
 	inv.insert(item)
