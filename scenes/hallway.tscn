@@ -1,21 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://r6qq75ecwt2g"]
+[gd_scene load_steps=19 format=3 uid="uid://r6qq75ecwt2g"]
 
 [ext_resource type="Texture2D" uid="uid://e6w3d0hrfme4" path="res://Backdrops/Hallway/Hallway #1.png" id="1_6aunl"]
+[ext_resource type="Script" path="res://scenes/hallway.gd" id="1_hnnce"]
 [ext_resource type="Script" path="res://rat.gd" id="2_cfeja"]
 [ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_q1chy"]
-[ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="4_h0p12"]
+[ext_resource type="Texture2D" uid="uid://b4j1skbq8johf" path="res://assets/idle pose/please.png" id="4_c3h5u"]
 [ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="5_loqa7"]
 [ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="6_lacqm"]
 [ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="7_5e3an"]
 [ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_vc74i"]
 [ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_hbsui"]
 [ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_o6tjm"]
+[ext_resource type="Script" path="res://notebook.gd" id="11_k24mx"]
+[ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_6h75c"]
+[ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_b3xel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rey3g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_h0p12")
+"texture": ExtResource("4_c3h5u")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -56,7 +60,14 @@ animations = [{
 radius = 11.8003
 height = 23.6006
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju25n"]
+size = Vector2(98.1659, 53.4444)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdnqq"]
+size = Vector2(92.6168, 18.6347)
+
 [node name="Hallway" type="Node2D"]
+script = ExtResource("1_hnnce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(574, 326.5)
@@ -64,7 +75,7 @@ scale = Vector2(1.8464, 1.58596)
 texture = ExtResource("1_6aunl")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1564, 597)
+position = Vector2(1023, 606)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("2_cfeja")
 inv = ExtResource("3_q1chy")
@@ -73,10 +84,10 @@ inv = ExtResource("3_q1chy")
 position = Vector2(-147.392, -22.8139)
 scale = Vector2(0.539097, 0.466112)
 sprite_frames = SubResource("SpriteFrames_rey3g")
-animation = &"idle_right"
+animation = &"idle_left"
 
 [node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
-position = Vector2(-144.098, -28.7141)
+position = Vector2(-149.657, -29.5008)
 shape = SubResource("CapsuleShape2D_1vjyk")
 
 [node name="Inv_UI" parent="rat" instance=ExtResource("10_o6tjm")]
@@ -87,3 +98,32 @@ offset_right = 3008.96
 offset_bottom = 331.832
 rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
+
+[node name="notebook" type="Area2D" parent="."]
+position = Vector2(-1464, -1410)
+script = ExtResource("11_k24mx")
+item = ExtResource("12_6h75c")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="notebook"]
+position = Vector2(2151, 1879)
+scale = Vector2(1.84854, 2.39284)
+texture = ExtResource("13_b3xel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
+position = Vector2(2151, 1880)
+scale = Vector2(0.790798, 1.49431)
+shape = SubResource("RectangleShape2D_ju25n")
+
+[node name="scene-transition-detect" type="Area2D" parent="."]
+position = Vector2(-202, 372)
+scale = Vector2(1.60007, 1.19049)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene-transition-detect"]
+position = Vector2(672.309, 31.6571)
+rotation = 3.14159
+scale = Vector2(0.354385, -7.15029)
+shape = SubResource("RectangleShape2D_pdnqq")
+
+[connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]
+[connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]

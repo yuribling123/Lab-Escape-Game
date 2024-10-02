@@ -180,6 +180,7 @@ offset_right = 3008.96
 offset_bottom = 331.832
 rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
+metadata/_edit_use_anchors_ = true
 
 [node name="axe" type="Area2D" parent="."]
 visible = false
@@ -236,6 +237,7 @@ scale = Vector2(2.47237, 2.17195)
 texture = ExtResource("20_yn3ky")
 
 [node name="notebook" type="Area2D" parent="."]
+visible = false
 position = Vector2(-1275, -1288)
 script = ExtResource("22_f7xbt")
 item = ExtResource("23_wlkge")
@@ -250,6 +252,7 @@ texture = ExtResource("23_cdhie")
 position = Vector2(2151, 1880)
 scale = Vector2(0.790798, 1.49431)
 shape = SubResource("RectangleShape2D_apk5g")
+disabled = true
 
 [connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]

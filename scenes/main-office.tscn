@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://b8pnybtr0x04o"]
+
+[ext_resource type="Texture2D" uid="uid://bsc0f16xkodf1" path="res://assets/main office .png" id="1_a4hsc"]
+[ext_resource type="Script" path="res://scenes/main-office.gd" id="1_pmr6q"]
+[ext_resource type="Script" path="res://rat.gd" id="2_ppgl0"]
+[ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_n7mex"]
+[ext_resource type="Texture2D" uid="uid://b4j1skbq8johf" path="res://assets/idle pose/please.png" id="4_5w3cu"]
+[ext_resource type="Texture2D" uid="uid://cpokky4a3s1ok" path="res://assets/idle pose/rat idle pose RIGHT.png" id="5_npehu"]
+[ext_resource type="Texture2D" uid="uid://b23glrclix40v" path="res://assets/running animation/rat running LEFT (1).png" id="6_77typ"]
+[ext_resource type="Texture2D" uid="uid://coeptmygcnbng" path="res://assets/running animation/rat running LEFT (2).png" id="7_uc3yn"]
+[ext_resource type="Texture2D" uid="uid://k2lqq5pkkf5g" path="res://assets/running animation/rat running RIGHT (2).png" id="8_glxs5"]
+[ext_resource type="Texture2D" uid="uid://ml5kl1rhx5ae" path="res://assets/running animation/rat running RIGHT (1).png" id="9_vafdd"]
+[ext_resource type="PackedScene" uid="uid://b22sotiklq4xm" path="res://inventory/inv_ui.tscn" id="10_bmvl2"]
+[ext_resource type="Script" path="res://notebook.gd" id="11_ftogy"]
+[ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_qvr3t"]
+[ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_hxln3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtd4y"]
+size = Vector2(251.888, 161.579)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk2eg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5w3cu")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_npehu")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_77typ")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uc3yn")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_glxs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vafdd")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdgrq"]
+radius = 11.8003
+height = 23.6006
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a1bs"]
+size = Vector2(98.1659, 53.4444)
+
+[node name="Main-office" type="Node2D"]
+script = ExtResource("1_pmr6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579.36, 322.5)
+scale = Vector2(0.399062, 0.39697)
+texture = ExtResource("1_a4hsc")
+
+[node name="scene-transition-detect" type="Area2D" parent="Sprite2D"]
+position = Vector2(-202, 372)
+scale = Vector2(1.60007, 1.19049)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/scene-transition-detect"]
+position = Vector2(994.086, -173.878)
+rotation = 3.14159
+scale = Vector2(0.354385, -7.15029)
+shape = SubResource("RectangleShape2D_vtd4y")
+
+[node name="rat" type="Area2D" parent="."]
+position = Vector2(1021, 557)
+scale = Vector2(4.85779, 5.08461)
+script = ExtResource("2_ppgl0")
+inv = ExtResource("3_n7mex")
+metadata/_edit_group_ = true
+
+[node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
+position = Vector2(-168.801, -16.1271)
+scale = Vector2(0.539097, 0.466112)
+sprite_frames = SubResource("SpriteFrames_rk2eg")
+animation = &"idle_left"
+
+[node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
+position = Vector2(-172.712, -21.4372)
+shape = SubResource("CapsuleShape2D_bdgrq")
+
+[node name="Inv_UI" parent="rat" instance=ExtResource("10_bmvl2")]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -121.043
+offset_top = -49.168
+offset_right = 3008.96
+offset_bottom = 331.832
+rotation = -3.13872
+scale = Vector2(0.0151642, -0.0173953)
+metadata/_edit_use_anchors_ = true
+
+[node name="notebook" type="Area2D" parent="."]
+position = Vector2(-1586, -1370)
+script = ExtResource("11_ftogy")
+item = ExtResource("12_qvr3t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="notebook"]
+position = Vector2(2151, 1879)
+scale = Vector2(1.84854, 2.39284)
+texture = ExtResource("13_hxln3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
+position = Vector2(2151, 1880)
+scale = Vector2(0.790798, 1.49431)
+shape = SubResource("RectangleShape2D_6a1bs")
+
+[connection signal="area_entered" from="Sprite2D/scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
+[connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]

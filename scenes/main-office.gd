@@ -1,11 +1,6 @@
 extends Node2D
 
-@export var item: InvItem
-
-var player = null
-
 @onready var rat = get_node("rat")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,12 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
-
-
-
-func _on_area_entered(area):
+func _on_scenetransitiondetect_area_entered(area):
 	if area == rat:
-		player = area;
-		item.name1 = 'journal-hallway'
-		player.collect(item)
-		queue_free()
+		print("transition")
+		get_tree().change_scene_to_file("res://scenes/test-tube.tscn")
+

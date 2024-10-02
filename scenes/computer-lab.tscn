@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bvtgsh8xvrl0k"]
 
-[ext_resource type="Texture2D" uid="uid://bv2bdwpq7a8w5" path="res://Backdrops/Computer lab room/computer lab.jpg" id="1_66mel"]
+[ext_resource type="Texture2D" uid="uid://dc42ixjlmfnly" path="res://assets/computer-lab.png" id="1_ns8so"]
 [ext_resource type="Script" path="res://rat.gd" id="2_fu0jq"]
 [ext_resource type="Resource" uid="uid://bujcrgj6lfbhh" path="res://inventory/playerinv.tres" id="3_namno"]
 [ext_resource type="Texture2D" uid="uid://ckepsay4iwbab" path="res://assets/idle pose/rat idle pose LEFT.png" id="4_4w5jl"]
@@ -58,14 +58,13 @@ height = 23.6006
 
 [node name="Computer-lab" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(582, 325)
-scale = Vector2(4.23723, 3.52717)
-texture = ExtResource("1_66mel")
-metadata/_edit_lock_ = true
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(574.073, 320.122)
+scale = Vector2(0.721751, 0.594016)
+texture = ExtResource("1_ns8so")
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1341, 668)
+position = Vector2(817, 724)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("2_fu0jq")
 inv = ExtResource("3_namno")
@@ -88,3 +87,4 @@ offset_right = 3008.96
 offset_bottom = 331.832
 rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
+metadata/_edit_use_anchors_ = true
