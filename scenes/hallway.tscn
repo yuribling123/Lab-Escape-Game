@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r6qq75ecwt2g"]
+[gd_scene load_steps=26 format=3 uid="uid://r6qq75ecwt2g"]
 
 [ext_resource type="Texture2D" uid="uid://e6w3d0hrfme4" path="res://Backdrops/Hallway/Hallway #1.png" id="1_6aunl"]
 [ext_resource type="Script" path="res://scenes/hallway.gd" id="1_hnnce"]
@@ -15,6 +15,9 @@
 [ext_resource type="Resource" uid="uid://dc3k2qyouvt3j" path="res://inventory/items/notebook.tres" id="12_6h75c"]
 [ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_b3xel"]
 [ext_resource type="Script" path="res://scenes/journal-text.gd" id="15_ixx7a"]
+[ext_resource type="Texture2D" uid="uid://cm6casyqo5lde" path="res://Backdrops/Hallway/cobwebs to move around.png" id="16_clixi"]
+[ext_resource type="Texture2D" uid="uid://cf7ld6fe76v8f" path="res://Backdrops/Hallway/roach-removebg-preview.png" id="17_ttsqn"]
+[ext_resource type="Texture2D" uid="uid://cts2ph2kgcdht" path="res://Backdrops/Hallway/Spider-removebg-preview.png" id="18_3d7tv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rey3g"]
 animations = [{
@@ -67,28 +70,41 @@ size = Vector2(98.1659, 53.4444)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdnqq"]
 size = Vector2(92.6168, 18.6347)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxfhm"]
+radius = 40.2616
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47w2g"]
+radius = 38.8973
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7v3q"]
+radius = 46.8722
+
 [node name="Hallway" type="Node2D"]
 script = ExtResource("1_hnnce")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(574, 326.5)
 scale = Vector2(1.8464, 1.58596)
 texture = ExtResource("1_6aunl")
+metadata/_edit_lock_ = true
 
 [node name="rat" type="Area2D" parent="."]
-position = Vector2(1023, 606)
+position = Vector2(919, 628)
 scale = Vector2(4.85779, 5.08461)
 script = ExtResource("2_cfeja")
 inv = ExtResource("3_q1chy")
+metadata/_edit_group_ = true
 
 [node name="rat-animation" type="AnimatedSprite2D" parent="rat"]
+z_index = 1
 position = Vector2(-147.392, -22.8139)
 scale = Vector2(0.539097, 0.466112)
 sprite_frames = SubResource("SpriteFrames_rey3g")
 animation = &"idle_left"
 
 [node name="rat-collision-2D" type="CollisionShape2D" parent="rat"]
-position = Vector2(-149.657, -29.5008)
+position = Vector2(-150.686, -29.6975)
 shape = SubResource("CapsuleShape2D_1vjyk")
 
 [node name="Inv_UI" parent="rat" instance=ExtResource("10_o6tjm")]
@@ -101,13 +117,14 @@ rotation = -3.13872
 scale = Vector2(0.0151642, -0.0173953)
 
 [node name="notebook" type="Area2D" parent="."]
-position = Vector2(-1464, -1410)
+position = Vector2(-1814, -1330)
 script = ExtResource("11_k24mx")
 item = ExtResource("12_6h75c")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="notebook"]
 position = Vector2(2151, 1879)
+rotation = -1.07687
 scale = Vector2(1.84854, 2.39284)
 texture = ExtResource("13_b3xel")
 
@@ -144,6 +161,44 @@ We cannot control Subject 104 anymore. Experiment is  a failure.  We are shuttin
 
 We must leave now."
 script = ExtResource("15_ixx7a")
+
+[node name="cobweb" type="Area2D" parent="."]
+position = Vector2(14, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="cobweb"]
+position = Vector2(358.188, 447.937)
+scale = Vector2(0.199663, 0.216476)
+texture = ExtResource("16_clixi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cobweb"]
+position = Vector2(363, 449)
+shape = SubResource("CircleShape2D_fxfhm")
+
+[node name="roach" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="roach"]
+position = Vector2(118, 593)
+scale = Vector2(0.535185, 0.390271)
+texture = ExtResource("17_ttsqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="roach"]
+position = Vector2(119, 600)
+shape = SubResource("CircleShape2D_47w2g")
+
+[node name="spider" type="Area2D" parent="."]
+position = Vector2(3, 55)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spider"]
+position = Vector2(721, 354)
+scale = Vector2(0.405085, 0.509709)
+texture = ExtResource("18_3d7tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spider"]
+position = Vector2(724, 349)
+shape = SubResource("CircleShape2D_h7v3q")
 
 [connection signal="area_entered" from="notebook" to="notebook" method="_on_area_entered"]
 [connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]

@@ -116,18 +116,17 @@ scale = Vector2(0.0151642, -0.0173953)
 metadata/_edit_use_anchors_ = true
 
 [node name="journal-main" type="Area2D" parent="."]
-position = Vector2(-1981, -1653)
+position = Vector2(-1964, -1713)
 rotation = 0.0410721
-scale = Vector2(1.47783, 1.02725)
+scale = Vector2(1.45651, 1.05294)
 script = ExtResource("12_rw532")
 item = ExtResource("12_qvr3t")
 metadata/_edit_group_ = true
 
 [node name="journal-image" type="Sprite2D" parent="journal-main"]
 position = Vector2(1739.99, 2004.83)
-rotation = -0.827286
-scale = Vector2(2.143, 3)
-skew = -0.0296706
+rotation = -5.67407
+scale = Vector2(1.60423, 1.71027)
 texture = ExtResource("13_hxln3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="journal-main"]

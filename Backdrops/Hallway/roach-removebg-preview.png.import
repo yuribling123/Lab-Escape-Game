@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beherb8y6c8gt"
-path="res://.godot/imported/roach.png-274fdb563753cf704fbbf6ec7db9b90a.ctex"
+uid="uid://cf7ld6fe76v8f"
+path="res://.godot/imported/roach-removebg-preview.png-233663244963fc1e486b62c7c3f1d12d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backdrops/Hallway/roach.png"
-dest_files=["res://.godot/imported/roach.png-274fdb563753cf704fbbf6ec7db9b90a.ctex"]
+source_file="res://Backdrops/Hallway/roach-removebg-preview.png"
+dest_files=["res://.godot/imported/roach-removebg-preview.png-233663244963fc1e486b62c7c3f1d12d.ctex"]
 
 [params]
 
