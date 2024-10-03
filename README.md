@@ -21,4 +21,8 @@
 ![image](https://github.com/user-attachments/assets/ce196e50-7e91-44a1-b067-67870a8b518b)
 
 
+10/3 Update: More Scene Transition + Muisc
+
+![image](https://github.com/user-attachments/assets/0d803c59-4a8e-4cb7-a57c-74571d6b2b66)
+
 
