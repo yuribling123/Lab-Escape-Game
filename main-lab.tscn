@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c7q1bq2vkkk8b"]
+[gd_scene load_steps=33 format=3 uid="uid://c7q1bq2vkkk8b"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_vspup"]
 [ext_resource type="Texture2D" uid="uid://bqdqbvgr6m56" path="res://Backdrops/the big main lab/the big main lab.jpg" id="2_i5luc"]
@@ -21,12 +21,10 @@
 [ext_resource type="Script" path="res://key.gd" id="19_eudm7"]
 [ext_resource type="Resource" uid="uid://dtlxs4yep804m" path="res://inventory/items/key.tres" id="20_nxuy4"]
 [ext_resource type="Texture2D" uid="uid://breypkc5ph6np" path="res://inventory/inventory_raw_assets/tools/key.png" id="20_yn3ky"]
+[ext_resource type="Texture2D" uid="uid://b4n54mb0ohisk" path="res://Backdrops/the big main lab/lock for the foor.png" id="22_5ldu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmvq2"]
 size = Vector2(37.0962, 12.8343)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5qnu3"]
-radius = 39.1505
 
 [sub_resource type="Theme" id="Theme_b83er"]
 
@@ -87,6 +85,12 @@ radius = 47.8703
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrvbv"]
 radius = 30.7366
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rx5yq"]
+radius = 27.2947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44hff"]
+radius = 29.5296
+
 [node name="World" type="Node"]
 script = ExtResource("1_vspup")
 
@@ -94,6 +98,7 @@ script = ExtResource("1_vspup")
 position = Vector2(576, 324)
 scale = Vector2(1.60007, 1.19049)
 texture = ExtResource("2_i5luc")
+metadata/_edit_lock_ = true
 
 [node name="scene-transition-detect" type="Area2D" parent="."]
 position = Vector2(-202, 372)
@@ -106,20 +111,10 @@ scale = Vector2(0.354385, -7.15029)
 shape = SubResource("RectangleShape2D_nmvq2")
 
 [node name="cheese" type="Area2D" parent="."]
-visible = false
 position = Vector2(3011, 1243)
 scale = Vector2(1.8326, 2.00209)
 disable_mode = 2
 script = ExtResource("3_7yu8c")
-
-[node name="cheese-image" type="Sprite2D" parent="cheese"]
-position = Vector2(-210.084, 377.106)
-scale = Vector2(2.74372, 2.39026)
-texture = ExtResource("3_l0222")
-
-[node name="cheese-collision-2D" type="CollisionShape2D" parent="cheese"]
-position = Vector2(-209.538, 353.63)
-shape = SubResource("CircleShape2D_5qnu3")
 
 [node name="dialogue" type="Panel" parent="cheese"]
 visible = false
@@ -148,6 +143,11 @@ offset_bottom = 460.551
 text = "close
 "
 script = ExtResource("5_rfgn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="cheese"]
+texture = ExtResource("3_l0222")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cheese"]
 
 [node name="rat" type="Area2D" parent="."]
 position = Vector2(1329, 542)
@@ -229,6 +229,30 @@ shape = SubResource("CircleShape2D_qrvbv")
 position = Vector2(2322.28, 1929.56)
 scale = Vector2(2.47237, 2.17195)
 texture = ExtResource("20_yn3ky")
+
+[node name="lock" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lock"]
+position = Vector2(406, 386)
+shape = SubResource("CircleShape2D_rx5yq")
+
+[node name="Sprite2D" type="Sprite2D" parent="lock"]
+position = Vector2(423, 379)
+scale = Vector2(0.178385, 0.186404)
+texture = ExtResource("22_5ldu7")
+
+[node name="food" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="food"]
+position = Vector2(808, 586)
+scale = Vector2(1.64, 2.08)
+texture = ExtResource("3_l0222")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="food"]
+position = Vector2(801, 559)
+shape = SubResource("CircleShape2D_44hff")
 
 [connection signal="area_entered" from="scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="cheese" to="." method="_on_cheese_area_entered"]
