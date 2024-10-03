@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8pnybtr0x04o"]
+[gd_scene load_steps=22 format=3 uid="uid://b8pnybtr0x04o"]
 
 [ext_resource type="Texture2D" uid="uid://bsc0f16xkodf1" path="res://assets/main office .png" id="1_a4hsc"]
 [ext_resource type="Script" path="res://scenes/main-office.gd" id="1_pmr6q"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://axe.gd" id="12_rw532"]
 [ext_resource type="Texture2D" uid="uid://bckl0cscu4kb0" path="res://inventory/inventory_raw_assets/tools/notebook that can be opened, filled with clues-3.png" id="13_hxln3"]
 [ext_resource type="Script" path="res://scenes/notebook-main.gd" id="15_445gb"]
+[ext_resource type="Script" path="res://scenes/journal-main-text.gd" id="16_icflp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtd4y"]
 size = Vector2(251.888, 161.579)
@@ -150,6 +151,28 @@ position = Vector2(2151, 1880)
 scale = Vector2(0.790798, 1.49431)
 shape = SubResource("RectangleShape2D_ignhk")
 disabled = true
+
+[node name="journal-main-text" type="Button" parent="."]
+z_index = 2
+offset_left = 153.0
+offset_top = 29.0
+offset_right = 1002.0
+offset_bottom = 474.0
+text = "10/13/2000
+04:05
+the sedation has worn off. 
+subject can not be contained.
+euthanasia will be administered.
+
+04:10
+euthanasia was not successfully administered.
+subject has escaped the containment.
+3 casualties.
+
+04:17
+emergent code black has been called.
+lab evacuation."
+script = ExtResource("16_icflp")
 
 [connection signal="area_entered" from="Sprite2D/scene-transition-detect" to="." method="_on_scenetransitiondetect_area_entered"]
 [connection signal="area_entered" from="journal-main" to="journal-main" method="_on_area_entered"]

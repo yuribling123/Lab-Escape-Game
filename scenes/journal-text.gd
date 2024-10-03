@@ -8,6 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print("called ")
 	var inv: Inv = preload("res://inventory/playerinv.tres")
 	for i in range(inv.items.size()):  
 		print(i, " ", inv.items[i])

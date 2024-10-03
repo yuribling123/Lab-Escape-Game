@@ -111,6 +111,7 @@ scale = Vector2(0.354385, -7.15029)
 shape = SubResource("RectangleShape2D_nmvq2")
 
 [node name="cheese" type="Area2D" parent="."]
+visible = false
 position = Vector2(3011, 1243)
 scale = Vector2(1.8326, 2.00209)
 disable_mode = 2
@@ -243,6 +244,7 @@ scale = Vector2(0.178385, 0.186404)
 texture = ExtResource("22_5ldu7")
 
 [node name="food" type="Area2D" parent="."]
+position = Vector2(12, -12)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="food"]

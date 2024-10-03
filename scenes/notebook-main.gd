@@ -22,6 +22,6 @@ func _process(delta):
 func _on_area_entered(area):
 	if area == rat:
 		player = area;
-		item.name1 = 'notebook-main'
+		item.name1 = 'journal-main'
 		player.collect(item)
 		queue_free()

@@ -143,23 +143,32 @@ rotation = 3.14159
 scale = Vector2(0.354385, -7.15029)
 shape = SubResource("RectangleShape2D_pdnqq")
 
-[node name="journal-text" type="Button" parent="."]
+[node name="journal-hallway-text" type="Button" parent="."]
 visible = false
-offset_left = 183.0
-offset_top = 162.0
-offset_right = 1032.0
-offset_bottom = 478.0
-text = "<<Journal Entry Fragment>>
-On Increasing a Being's Lifespan
+z_index = 2
+offset_left = 153.0
+offset_top = 29.0
+offset_right = 1002.0
+offset_bottom = 474.0
+text = "10/12/2000:
 
-Many test trials have failed.
+08:00
+vaccine 0602 has been administered to subject #009.
+no immediate effects observed.
 
-Serum was injected into Subject 104, but subject only became more and more monstrous.
-We cannot control Subject 104 anymore. Experiment is  a failure.  We are shutting down the experiment.
+12:32 
+subject has episodes activity and inactivity, energy levels inconsistent.
+subject is very irritable.
 
-...
+13:02
+subject has become aggressive.
+subject has been placed in a secure containment to avoid injury.
 
-We must leave now."
+16:54
+subject has become rampant. 
+emergent code red has been called.
+an emergent sedation will be administered.
+"
 script = ExtResource("15_ixx7a")
 
 [node name="cobweb" type="Area2D" parent="."]
