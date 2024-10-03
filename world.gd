@@ -7,8 +7,11 @@ extends Node
 func _ready():
 	dialog_label.visible = false
 	dialog_button.visible = false
+	MusicController.play_music()
 
 func _process(delta):
+	#if $AudioStreamPlayer2D.playing == false:
+		#$AudioStreamPlayer2D.play()
 	pass
 
 func _on_cheese_area_entered(area):

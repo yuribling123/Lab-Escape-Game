@@ -14,6 +14,10 @@ config/name="Lab-Escape-Game"
 run/main_scene="res://main-lab.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
+[autoload]
+
+MusicController="*res://autoloads/MusicController.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"

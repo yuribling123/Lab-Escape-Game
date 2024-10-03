@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpvwnvog4l1si"
+path="res://.godot/imported/Gamedev1 Ambient(retro).wav-537d50fc767ce97ce84dc2c69f58884b.sample"
+
+[deps]
+
+source_file="res://assets/mus/Gamedev1 Ambient(retro).wav"
+dest_files=["res://.godot/imported/Gamedev1 Ambient(retro).wav-537d50fc767ce97ce84dc2c69f58884b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
